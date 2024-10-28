@@ -3,6 +3,7 @@ import { Link , useParams } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCards } from 'swiper/modules';
 import { TabNav } from '@radix-ui/themes'
+import { Button } from '@headlessui/react'
 
 import 'swiper/css';
 import 'swiper/css/effect-cards';
@@ -42,7 +43,8 @@ export const Home = () => {
                 <>
                     <Navbar/>
 
-                    <div className='mt-10 lg:mt-40 flex items-center'>
+                    {/* <div className='mt-10 lg:mt-40  min-h-screen min-w-full flex items-center'> */}
+                    <div className='justify-center  min-h-screen min-w-full flex items-center'>
                         <Swiper effect={'cards'} grabCursor={true} modules={[EffectCards]} className="mySwiper">
                             {data.map((data) =>
                                 <SwiperSlide key={data.brand_id}>
@@ -56,8 +58,8 @@ export const Home = () => {
                         </Swiper>
                     </div>
 
-                    <div className='flex flex-wrap justify-center gap-2 lg:mx-4 my-2'>
-                    </div>  
+                    {/* <div className='flex flex-wrap justify-center gap-2 lg:mx-4 my-2'>
+                    </div>   */}
                 </>
             ) }
         </>
@@ -68,32 +70,24 @@ export const Home = () => {
 export const Navbar = () => {
     return (
 
-        <TabNav.Root>
-            <TabNav.Link href="#" active>
-                Account
-            </TabNav.Link>
-            <TabNav.Link href="#">Documents</TabNav.Link>
-            <TabNav.Link href="#">Settings</TabNav.Link>
-        </TabNav.Root>
+        // <TabNav.Root>
+        //     <TabNav.Link href="#" active>
+        //         Account
+        //     </TabNav.Link>
+        //     <TabNav.Link href="#">Documents</TabNav.Link>
+        //     <TabNav.Link href="#">Settings</TabNav.Link>
+        // </TabNav.Root>
 
-        // <div className="flex">
-        //     <div className="flex-none lg:flex-1">
-        //         <a className="light:text-white btn btn-ghost normal-case text-xl">ingfoHP</a>
-        //     </div>
-        //     <div className="flex-wrap lg:flex-none gap-5">
-        //         <ul className="invisible lg:visible menu menu-horizontal px-1">
-        //             <li>
-        //                 <Link className='link-hover font-semibold text-pink-600 hover:text-pink-700' to={'/phone/latest'}>Latest Released</Link>
-        //             </li>
-        //             <li>
-        //                 <Link className='link-hover font-semibold text-pink-600 hover:text-pink-700' to={'/phone/fans'}>Top by fans</Link>
-        //             </li>
-        //             <li>
-        //                 <Link className='link-hover font-semibold text-pink-600 hover:text-pink-700' to={'/phone/interest'}>Top by interest</Link>
-        //             </li>
-        //         </ul>
-        //     </div>
-        // </div>
+        <div className="flex">
+            <div className="flex justify-start flex-1  lg:flex-1">
+                <a className="light:text-white btn btn-ghost normal-case text-xl">ingfoHP</a>
+            </div>
+            <div className="flex gap-5">
+                <Link className='link-hover text-sm font-semibold text-pink-600 hover:text-pink-700' to={'/phone/latest'}>Latest Released</Link>
+                <Link className='link-hover  text-sm font-semibold text-pink-600 hover:text-pink-700' to={'/phone/fans'}>Top by fans</Link>
+                <Link className='link-hover  text-sm font-semibold text-pink-600 hover:text-pink-700' to={'/phone/interest'}>Top by interest</Link>
+            </div>
+        </div>
         // <div className="navbar bg-transparent p-8">
         //     <div className="flex-none lg:flex-1">
         //         <a className="light:text-white btn btn-ghost normal-case text-xl">ingfoHP</a>
