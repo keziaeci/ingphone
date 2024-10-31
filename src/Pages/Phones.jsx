@@ -66,7 +66,15 @@ export const Phones = () => {
                     <div className='flex flex-wrap md:justify-center gap-4 md:gap-3 lg:gap-14 lg:mx-4 mt-10'>
                         {phone.map((data,index) =>
                         // <Box maxWidth="240px"  key={index}>
-                        <Link key={index} to={`/phone/${data.slug}/detail`}>
+                        // <Link key={index} to={{ 
+                        //     pathname: `/phone/${data.slug}/detail`,
+                        //     state: {
+                        //         'brand-slug' : slug,
+                        //         'page' : page,
+                        //     }
+                        // }}>
+                        <Link key={index} to={`/phone/${data.slug}/detail`} 
+                            state={{ brand_slug: slug, page: page }}>
                             <Box>
                                 <Card className='hover:scale-105 duration-300 w-[160px] h-[100px] md:w-[200px] md:h-[150px]'>
                                     <Flex gap="3" className='w-full h-full' align="center">

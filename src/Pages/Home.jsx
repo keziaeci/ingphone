@@ -83,9 +83,9 @@ export const Navbar = () => {
                 <a className="light:text-white btn btn-ghost normal-case text-xl">ingfoHP</a>
             </div>
             <div className="flex gap-5">
-                {/* <Link className='link-hover text-sm font-semibold text-pink-600 hover:text-pink-700' to={'/phone/latest'}>Latest Released</Link>
+                <Link className='link-hover text-sm font-semibold text-pink-600 hover:text-pink-700' to={'/phone/latest'}>Latest Released</Link>
                 <Link className='link-hover  text-sm font-semibold text-pink-600 hover:text-pink-700' to={'/phone/fans'}>Top by fans</Link>
-                <Link className='link-hover  text-sm font-semibold text-pink-600 hover:text-pink-700' to={'/phone/interest'}>Top by interest</Link> */}
+                <Link className='link-hover  text-sm font-semibold text-pink-600 hover:text-pink-700' to={'/phone/interest'}>Top by interest</Link>
             </div>
         </div>
         // <div className="navbar bg-transparent p-8">

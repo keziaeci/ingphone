@@ -1,16 +1,23 @@
 import React ,{ useEffect , useState } from 'react'
-import { Link , useParams } from 'react-router-dom'
+import { Link , useLocation, useParams } from 'react-router-dom'
 import { Container, Flex, Text, Skeleton,Box,Card, Avatar,Separator } from '@radix-ui/themes'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css';
 
 export const PhoneDetail = () => {
     const { slug } = useParams()
+    // const { state } = this.props.location
+    // const { brand_slug, page } = useLocation()
+    const { state } = useLocation()
     const [data, setData] = useState([])
     const [load, setLoad] = useState(false)
     const [images, setImages] = useState([])
     const [specs, setSpecs] = useState([])
 
+
+    // console.log(props)
+    // console.log(state)
+    // console.log(brand_slug)
     useEffect(() => {
         const getDetail = async () => {
             setLoad(true)
@@ -59,15 +66,22 @@ export const PhoneDetail = () => {
         ) : (
             // <>
                 <div className='flex flex-col items-start m-0 p-0 min-w-full'>
-                    <Link className='lg:flex-none hover:underline text-base text-pink-600 hover:text-pink-600' to={'/'}>Back</Link>
+                    {state.brand_slug == null  ? (
+                        <Link className='lg:flex-none hover:underline text-base text-pink-600 hover:text-pink-600' 
+                            to={`/phone/${state.page}`}>Back</Link>
+                    ) : (
+                        <Link className='lg:flex-none hover:underline text-base text-pink-600 hover:text-pink-600' 
+                            to={`/phone/${state.brand_slug}/${state.page}`}>Back</Link>
+                    )}
+
                     <h1 className='font-bold text-lg text-gray-500'>{data.brand}</h1>
-                    <h1 className='font-black text-6xl text-white'>{data.phone_name}</h1>
+                    <h1 className='font-black text-2xl md:text-6xl text-white'>{data.phone_name}</h1>
                     <div className=''>
                         <Swiper
                             spaceBetween={10}
                             slidesPerView={1}
                             style={{ backgroundColor: 'none' }}
-                            className='swiper2 my-5 lg:w-72 mx-0'>
+                            className='swiper2 my-5 w-60 lg:w-72 mx-0'>
                                 {images.map((data, index) => 
                             <SwiperSlide key={index}>
                                 <img src={data}  className='m-2'/>
